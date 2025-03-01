@@ -1,52 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 
+      Gostei de ter envolvido os cards em uma section. Nesse caso,
+      essa parte seria mesmo uma forte candidata a ser uma section por ser uma seção de cards. 
+     -->
     <section>
-        <div class="cards" id="card--1"><img src="images/IMG--JOVEM.jpg" alt="">
-            <p id="text-tecnology">Tecnology</p>
-            <h2>What´s new in 2022 Tech</h2>
-            <p class="cards-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum voluptatum quis ut sint recusandae tenetur distinctio suscipit temporibus sapiente? Quaerat</p>
-            <div class="profiles" id="profile-1">
-                <img src="images/IMG-JANE.webp" alt="">
-                <div class="profiles-content">
-                    <h1>Jane Doe</h1>
-                    <h2>2h ago</h2>
-                </div>
-            </div>
+      <!-- 
+        O id="card--1" não está fazendo nada no projeto. E a nomenclatura não faz parte de um padrão
+        de escrita para id que comumente é com apenas um hifen para separar palavras compostas (Kebab Case) ou no padrão (Camel Case)
+        consulte sobre nesse link: https://www.alura.com.br/artigos/convencoes-nomenclatura-camel-pascal-kebab-snake-case?srsltid=AfmBOoq6RW7kSA8YhfhGJ432R-upA_H9ELiUOtALU1ipJG1nkVC40STf
+
+        Outro ponto importante é que esse pedaço representa apenas 1 (um) card e não muitos. Poderia chamar
+        a classe apenas de 'card'
+      -->
+      <div class="cards" id="card--1">
+        <!--
+          Faltou o texto alternativo "alt" na imagem. Isso é usado para leitores de tela. Não usar,
+          fere principios de "acessibilidade".
+          O nome da imagem não faz parte de um padrão comum. normalmente usamos o padrão (Kebab Case) para nomea-las.
+          Exemplo: src="imagens/img-jovem.jpg"
+        -->
+        <img src="images/IMG--JOVEM.jpg" alt="" />
+        <!--
+          Normalmente usamos a tag p para criarmos parágrafos, que por sua vez, são usados em textos corridos.
+          No caso do 'cards-content' faz tem mais aspecto de parágrafo que esse trecho. Pois esse tem apenas uma palavra.
+          A melhor prática para estilos css é usar class ao invés de id. Por questão de reuzabilidade. A class não atua
+          como um identificador único. Portanto posso usar em qualquer outra parte reutilizando a class em outros elementos.
+        -->
+        <p id="text-tecnology">Tecnology</p>
+        <h2>What´s new in 2022 Tech</h2>
+        <!--
+          Gostei de ter utilizado uma notação parecida com OOCSS: https://allonsmandy.netlify.app/blog/arquitetura-css-oocss/
+          Mas como se trata do content do card, usaria "card-content" ao invés de "cards-content".
+        -->
+        <p class="cards-content">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
+          voluptatum quis ut sint recusandae tenetur distinctio suscipit
+          temporibus sapiente? Quaerat
+        </p>
+        <!-- O id profile-1 não está fazendo nenhuma ação, estilo etc na aplicação. Não precisaria escreve-lo -->
+        <div class="profiles" id="profile-1">
+          <img src="images/IMG-JANE.webp" alt="" />
+          <div class="profiles-content">
+            <!--
+              Semanticamente falando. Só posso ter um h1 por página. O h1 é o título principal da página.
+              Nesse caso, também não poderia ser um h2 por já ter usado logo acima. Os títulos funcionam como uma hierarquia.
+              O h1 é o título principal da página. O h2 é o título secundário. O h3 é o título terciário.
+              E assim por diante.
+              Nesse caso, também não poderia ser um p, poruqe não é um texto corrido que explica algo. É apenas uma informação simples.
+              faria mais sentido ser apenas um span ou um strong.
+            -->
+            <h1>Jane Doe</h1>
+            <!-- Mesma explicação de cima. Talvez usaria um span -->
+            <h2>2h ago</h2>
+          </div>
         </div>
-        <div class="cards" id="card--2"><img src="images/IMG--BOLO.jpg" alt="">
-            <p id="text-food">Food</p>
-            <h2>Delicious Food</h2>
-            <p class="cards-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum voluptatum quis ut sint recusandae tenetur distinctio suscipit temporibus sapiente? Quaerat.</p>
-            <div class="profiles" id="profile-2">
-                <img src="images/IMG-JONY.webp" alt="">
-                <div class="profiles-content">
-                    <h1>Jony Doe</h1>
-                    <h2>yesterday</h2>
-                </div>
-            </div>
+      </div>
+      <div class="cards" id="card--2">
+        <img src="images/IMG--BOLO.jpg" alt="" />
+        <p id="text-food">Food</p>
+        <h2>Delicious Food</h2>
+        <p class="cards-content">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
+          voluptatum quis ut sint recusandae tenetur distinctio suscipit
+          temporibus sapiente? Quaerat.
+        </p>
+        <div class="profiles" id="profile-2">
+          <img src="images/IMG-JONY.webp" alt="" />
+          <div class="profiles-content">
+            <h1>Jony Doe</h1>
+            <h2>yesterday</h2>
+          </div>
         </div>
-        <div class="cards" card--3><img src="images/IMG--CARRO.jpg" alt="">
-            <p id="text-automobile">AutoMobile</p>
-            <h2>Race to Your Heart <br> Content</h2>
-            <p class="cards-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum voluptatum quis ut sint recusandae tenetur distinctio suscipit temporibus sapiente? Quaerat</p>
-            <div class="profiles" id="profile-3">
-                <img src="images/IMG-JONH.webp" alt="">
-                <div class="profiles-content">
-                    <h1>Jonh Doe</h1>
-                    <h2>2d ago</h2>
-                </div>
-            </div>
+      </div>
+      <!-- Esse atributo card--3 não está fazendo nada na aplicação. Não precisaria escreve-lo -->
+      <div class="cards" card--3>
+        <img src="images/IMG--CARRO.jpg" alt="" />
+        <p id="text-automobile">AutoMobile</p>
+        <h2>
+          Race to Your Heart <br />
+          Content
+        </h2>
+        <p class="cards-content">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
+          voluptatum quis ut sint recusandae tenetur distinctio suscipit
+          temporibus sapiente? Quaerat
+        </p>
+        <div class="profiles" id="profile-3">
+          <img src="images/IMG-JONH.webp" alt="" />
+          <div class="profiles-content">
+            <h1>Jonh Doe</h1>
+            <h2>2d ago</h2>
+          </div>
         </div>
+      </div>
     </section>
-</body>
+  </body>
 </html>

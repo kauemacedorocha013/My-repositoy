@@ -1,113 +1,180 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-body{
-    background-image: linear-gradient(to right, #91e2e5 , #8086da);
-    font-family: "Quicksand", sans-serif;
-}
-
-section{
-    margin-top:50px;
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: center;
+/*
+  Gostei do reset. Só cuide para não abusar do seletor "*" que chamamos de seletor universal. 
+  Para entender melhor sobre reset ou noormalize.css, acesse: https://www.youtube.com/watch?v=pqjN998Cu-Q
+*/
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.cards{
-    border-radius: 20px;
-    width: 330px;
-    height: 27rem;
-    background-color: #ffffff;
-    margin: 20px;
-    position: relative;
-    box-sizing: border-box;
+/*
+  Gostei de ter utilizado uma fonte para teu site. normalmente iniciantes usam as já instaladas na máquina 
+  e você procurou uma fonte que não é instalada na máquina garantindo que o usuário tenha a fonte mesmo que não tenha instalado.
+*/
+body {
+  background-image: linear-gradient(to right, #91e2e5, #8086da);
+  font-family: "Quicksand", sans-serif;
 }
 
-.cards:hover{
-    box-shadow: 2px 2px 4px black;
-    transition: all 0.3s;
+section {
+  margin-top: 50px;
+  /*
+    Não te passei aula sobre css grid. Parabéns por ter conseguido fazer esse estilo usando ele.
+    Estude antes do css grid o display flex: https://www.youtube.com/watch?v=gOMK_xruAqc
+    Ele é bem mais simples de usar e você pode fazer o mesmo que fez com o css grid usando o display flex.
+  */
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
 }
 
-.cards img{
-    border-radius: 20px 20px 0px 0px;
-    width: 100%;
-    height: 35%;
+.cards {
+  border-radius: 20px;
+  width: 330px;
+  height: 27rem;
+  background-color: #ffffff;
+  margin: 20px;
+  /* 
+    No card não tem nenhuma camada/layer sobreposta. Não precisa de position relative para posicionar os elementos do mesmo.
+  */
+  position: relative;
+  box-sizing: border-box;
 }
 
-.cards-content{
-    margin: 10px;
-    font-size: 15px;
-    opacity: 0.5;
-    text-align: justify;
+/* Olha só! Usando box-shadow e transições! Esse é meu garoto! */
+.cards:hover {
+  box-shadow: 2px 2px 4px black;
+  transition: all 0.3s;
 }
 
-.cards h2{
-    font-size: 25px;
-    margin-left: 10px;
+.cards img {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  height: 35%;
 }
 
-#text-tecnology{
-    margin: 10px;
-    color: #ffffff;
-    background-color:#378de7;
-    max-width: 40%;
-    /* box-shadow: 1px 1px 4px #cccccc; */
-    padding: 5px;
-    text-align: center;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
+.cards-content {
+  margin: 10px;
+  font-size: 15px;
+  /*
+    Será se a cor do texto poderia ser alcançada apenas usando opacity?
+    a preocupação é com acessibilidade. Se por acaso mudar a cor do fundo, pode ser
+    que o texto fique ilegível em algumas situações.
+    O ideal é tentar conseguir a cor do texto definindo um color: #aaaaaa; por exemplo.
+  */
+  opacity: 0.5;
+  text-align: justify;
 }
 
-#text-food{
-    margin: 10px;
-    color: #ffffff;
-    background-color: #d7a254;
-    max-width: 25%;
-    padding: 5px;
-    text-align: center;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
+.cards h2 {
+  font-size: 25px;
+  margin-left: 10px;
 }
 
-#text-automobile{
-    margin: 10px;
-    color: #ffffff;
-    background-color: #e63f39;
-    max-width: 40%;
-    padding: 5px;
-    text-align: center;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
+/* 
+  #text-tecnology, #text-food e #text-automobile fazem a mesma coisa com exceção das variações de cores.
+  Não faria sentido criar uma classe para ser o esqueleto e criarmos uma classe modificadora para cada uma delas.
+  Exemplo:
+    <span class="card-title card-title-tecnology">Tecnology</span>
+    <span class="card-title card-title-food">Food</span>
+    <span class="card-title card-title-automobile">Automobile</span>
+
+    e no css ficaria assim por exemplo::after
+
+    .card-title {
+      margin: 10px;
+      color: #ffffff;
+      max-width: 40%;
+      padding: 5px;
+      text-align: center;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .card-title-tecnology {
+      background-color: #378de7;
+    }
+    .card-title-food {
+      background-color: #d7a254;
+    }
+    .card-title-automobile {
+      background-color: #e63f39;
+    }
+
+    Só lembrando que o id é único. Mas a classe, posso usar quantas vezes eu quiser além de usar quantas quiser em um unico elemento. Exemplo::after
+    <span class="card-title card-title-tecnology card-title-small card-title-uppercase">Tecnology</span>
+*/
+#text-tecnology {
+  margin: 10px;
+  color: #ffffff;
+  background-color: #378de7;
+  max-width: 40%;
+  /* box-shadow: 1px 1px 4px #cccccc; */
+  padding: 5px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.profiles{
-    position: absolute;
-    bottom: 0;
-    display: inline-flex;
-    margin: 10px 10px;
+#text-food {
+  margin: 10px;
+  color: #ffffff;
+  background-color: #d7a254;
+  max-width: 25%;
+  padding: 5px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.profiles img{
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
+#text-automobile {
+  margin: 10px;
+  color: #ffffff;
+  background-color: #e63f39;
+  max-width: 40%;
+  padding: 5px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.profiles-content{
-    margin-left: 10px;
-    padding: 5px;
-    align-items: left;
+.profiles {
+  /*
+    Não tem porque usar position absolute se não tem camadas sobrepostas.
+    Coisas do tipo: https://codrops-1f606.kxcdn.com/codrops/wp-content/uploads/2014/10/new-stacking-order.png?x25555
+  */
+  position: absolute;
+  bottom: 0;
+  display: inline-flex;
+  margin: 10px 10px;
 }
 
-.profiles-content h1{
-    font-size: 15px;
+.profiles img {
+  width: 50px;
+  height: 50px;
+  /*
+    Para deixar a imagem totalmente redondo, não precisava de 100px.
+    Se usasse apenas 25px, já daria o efeito. É sempre a metade da largura e altura.
+    Para 100, seria 50. Para 50, seria 25. Para 25, seria 12.5. e por ai vai.
+    Mas o mais comum é usarmos border-radius: 50%; para garantir que sempre será a metade
+  */
+  border-radius: 100px;
 }
 
-.profiles-content h2{
-    font-size: 13px;
-    opacity: 0.5;
+.profiles-content {
+  margin-left: 10px;
+  padding: 5px;
+  align-items: left;
+}
+
+.profiles-content h1 {
+  font-size: 15px;
+}
+
+.profiles-content h2 {
+  font-size: 13px;
+  opacity: 0.5;
 }
